@@ -1,4 +1,0 @@
--uroseals
-=========
-
-EUROSEALS Mod repository
