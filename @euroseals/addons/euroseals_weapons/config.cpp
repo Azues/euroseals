@@ -1,393 +1,118 @@
 class CfgPatches
 {
-	class euroseals_weapons_config
+	class euroseals_config
 	{
 		units[]=
 		{
+			"REPLACE_ME",
 
 		};
 		weapons[]=
 		{
-			"eus_hlc_rifle_bcmjack",
+			"REPLACE_ME",
 		};
 		requiredVersion=0.1;
 		requiredAddons[]=
 		{
-			"A3_Data_F",
-			"A3_UI_F",
-			"A3_Anims_F",
-			"A3_Anims_F_Config_Sdr",
+			"A3_Characters_F_BLUFOR",
+			"A3_Characters_F_OPFOR",
+			"A3_Characters_F_BETA",
 			"A3_Weapons_F",
-			"asdg_jointrails",
-			"hlcweapons_core",
-			"hlcweapons_ar15",
+			"A3_Soft_F",
+			"A3_Data_F"
 		};
 	};
 };
-
-class cfgWeapons
+class CfgFactionClasses
 {
-	class eus_hlc_rifle_bcmjack: hlc_rifle_bcmjack
+	class EUROSEALS
 	{
-		author="Twinke Masta, Tenoyl, Tigg, Toadie, Mitsu";
-		reloadAction="HLC_GestureReloadAR15_catch_WS";
+		icon="\euroseals\data\euroseals.paa";
+		displayName="EUROSEALS";
+		priority=2;
+		side="TWest";
+	};
+};
+class CfgVehicleClasses
+{
+	class EUROSEALS
+	{
+		displayName="EUROSEALS";
+	};
+};
+class CfgVehicles
+{
+	class REPLACE_ME_F;
+	class REPLACE_ME_F: REPLACE_ME_F
+	{
+		_generalMacro="REPLACE_ME_F";
 		scope=2;
-		magazines[]=
+		displayName="[EUS] REPLACE_ME";
+		author="Mitsu";
+		faction="EUROSEALS";
+		vehicleClass="EUROSEALS";
+		nakedUniform="U_BasicBody";
+		uniformClass="REPLACE_ME";
+		hiddenSelections[]=
 		{
-			"30Rnd_556x45_Stanag",
-			"hlc_30rnd_556x45_EPR",
-			"hlc_30rnd_556x45_SOST",
-			"hlc_30rnd_556x45_SPR",
-			"hlc_50rnd_556x45_EPR",
-			"30Rnd_556x45_Stanag_Tracer_Red",
-			"30Rnd_556x45_Stanag_Tracer_Green",
-			"30Rnd_556x45_Stanag_Tracer_Yellow"
+			"Camo",
+			"insignia"
 		};
-		model="hlc_wp_ar15\mesh\JackCarbine\samr.p3d";
-		picture="\hlc_wp_ar15\tex\ui\gear_jack_x_ca";
-		UiPicture="\A3\weapons_f\data\UI\icon_regular_CA.paa";
-		displayName="BCM 'Jack' Carbine";
-		descriptionShort="Assault rifle<br/>Caliber: 5.56mm";
-		discretedistance[]={100,150,200,250,300,350,400};
-		discretedistanceinitindex=0;
-		bg_bipod=0;
-		reloadMagazineSound[]=
+		hiddenSelectionsTextures[]=
 		{
-			"hlc_wp_ar15\snd\ar15_reload_A3_std",
-			0.74000001,
-			1,
-			30
+			"\euroseals\data\textures\REPLACE_ME.paa"
 		};
-		handAnim[]=
+		linkedItems[]=
 		{
-			"OFP2_ManSkeleton",
-			"hlc_wp_ar15\gesture\newgesture\carbine_hands.rtm"
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
 		};
-		opticszoominit=0.75;
-		opticszoommax=1.1;
-		opticszoommin=0.375;
-		class WeaponSlotsInfo: WeaponSlotsInfo
+		respawnLinkedItems[]=
 		{
-			mass=24;
-			class MuzzleSlot: SlotInfo
-			{
-				linkProxy="\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[]=
-				{
-					"hlc_muzzle_556NATO_KAC"
-				};
-			};
-			class CowsSlot: CowsSlot
-			{
-				compatibleItems[]={};
-			};
-			class PointerSlot: PointerSlot
-			{
-				compatibleItems[]={};
-			};
-			class asdg_OpticRail_Jack: asdg_OpticRail1913
-			{
-			};
-			class asdg_FrontSideRail_Jack: asdg_FrontSideRail
-			{
-			};
-		};
-		class ItemInfo
-		{
-			priority=1;
-			RMBhint="XMC";
-			onHoverText="TODO XMC DSS";
-		};
-		class Single: Mode_SemiAuto
-		{
-			sounds[]=
-			{
-				"StandardSound",
-				"SilencedSound"
-			};
-			class BaseSoundModeType
-			{
-				weaponSoundEffect="DefaultRifle";
-				closure1[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_first",
-					1,
-					1,
-					10
-				};
-				closure2[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_first",
-					1,
-					1,
-					10
-				};
-				soundClosure[]=
-				{
-					"closure1",
-					0.5,
-					"closure2",
-					0.5
-				};
-			};
-			class StandardSound: BaseSoundModeType
-			{
-				begin1[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_fire",
-					1,
-					1,
-					1200
-				};
-				begin2[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_fire",
-					1,
-					1,
-					1200
-				};
-				begin3[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_fire",
-					1,
-					1,
-					1200
-				};
-				soundBegin[]=
-				{
-					"begin1",
-					0.33000001,
-					"begin2",
-					0.33000001,
-					"begin3",
-					0.34
-				};
-			};
-			class SilencedSound: BaseSoundModeType
-			{
-				begin1[]=
-				{
-					"\hlc_wp_ar15\snd\diplomat_suppressed",
-					1,
-					1,
-					200
-				};
-				begin2[]=
-				{
-					"\hlc_wp_ar15\snd\diplomat_suppressed",
-					1,
-					1,
-					200
-				};
-				soundBegin[]=
-				{
-					"begin1",
-					0.5,
-					"begin2",
-					0.5
-				};
-			};
-			begin1[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_fire",
-				1,
-				1,
-				1200
-			};
-			begin2[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_fire",
-				1,
-				1,
-				1200
-			};
-			soundBegin[]=
-			{
-				"begin1",
-				0.5,
-				"begin2",
-				0.5
-			};
-			closure1[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_first",
-				1,
-				1,
-				30
-			};
-			closure2[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_first",
-				1,
-				1,
-				30
-			};
-			soundClosure[]=
-			{
-				"closure1",
-				0.5,
-				"closure2",
-				0.5
-			};
-			weaponSoundEffect="DefaultRifle";
-			reloadTime=0.071000002;
-			recoil="recoil_single_mk20";
-			recoilProne="recoil_single_prone_mk20";
-			dispersion=0.00013090001;
-			minRange=2;
-			minRangeProbab=0.7;
-			midRange=225;
-			midRangeProbab=0.69999999;
-			maxRange=400;
-			maxRangeProbab=0.3;
-		};
-		class FullAuto: Mode_FullAuto
-		{
-			sounds[]=
-			{
-				"StandardSound",
-				"SilencedSound"
-			};
-			class BaseSoundModeType
-			{
-				weaponSoundEffect="DefaultRifle";
-				closure1[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_first",
-					1,
-					1,
-					10
-				};
-				closure2[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_first",
-					1,
-					1,
-					10
-				};
-				soundClosure[]=
-				{
-					"closure1",
-					0.5,
-					"closure2",
-					0.5
-				};
-			};
-			class StandardSound: BaseSoundModeType
-			{
-				begin1[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_fire",
-					1,
-					1,
-					1200
-				};
-				begin2[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_fire",
-					1,
-					1,
-					1200
-				};
-				begin3[]=
-				{
-					"\hlc_wp_ar15\snd\jack_carbine_fire",
-					1,
-					1,
-					1200
-				};
-				soundBegin[]=
-				{
-					"begin1",
-					0.33000001,
-					"begin2",
-					0.33000001,
-					"begin3",
-					0.34
-				};
-			};
-			class SilencedSound: BaseSoundModeType
-			{
-				begin1[]=
-				{
-					"\hlc_wp_ar15\snd\diplomat_suppressed",
-					1,
-					1,
-					200
-				};
-				begin2[]=
-				{
-					"\hlc_wp_ar15\snd\diplomat_suppressed",
-					1,
-					1,
-					200
-				};
-				soundBegin[]=
-				{
-					"begin1",
-					0.5,
-					"begin2",
-					0.5
-				};
-			};
-			begin1[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_fire",
-				1,
-				1,
-				1200
-			};
-			begin2[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_fire",
-				1,
-				1,
-				1200
-			};
-			soundBegin[]=
-			{
-				"begin1",
-				0.5,
-				"begin2",
-				0.5
-			};
-			closure1[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_first",
-				1,
-				1,
-				30
-			};
-			closure2[]=
-			{
-				"hlc_wp_ar15\snd\jack_carbine_first",
-				1,
-				1,
-				30
-			};
-			soundClosure[]=
-			{
-				"closure1",
-				0.5,
-				"closure2",
-				0.5
-			};
-			weaponSoundEffect="DefaultRifle";
-			reloadTime=0.071000002;
-			recoil="recoil_auto_mk20";
-			recoilProne="recoil_auto_prone_mk20";
-			dispersion=0.00013090001;
-			maxrange=100;
-			maxrangeprobab=0.050000001;
-			midrange=30;
-			midrangeprobab=0.69999999;
-			minrange=1;
-			minrangeprobab=0.30000001;
-			aiRateOfFire=1e-006;
-		};
-		class Library
-		{
-			libTextDesc="BCM5 - Jack II";
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
 		};
 	};
+};
+class cfgWeapons
+{
+	class Uniform_Base;
+	class UniformItem;
+	class REPLACE_ME: Uniform_Base
+	{
+		scope=2;
+		author="Mitsu";
+		displayName="REPLACE_ME";
+		picture="\A3\characters_f\data\ui\icon_u_ir_officer_spc_ca.paa";	
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="REPLACE_ME";
+			containerClass="Supply50";
+			mass=80;
+		};
+	};
+	class Vest_Base;
+	class VestItem;
+	class Vest_Camo_Base;
+	/*
+	###VESTS GO HERE###
+	*/
+	class ItemCore;
+	class HeadgearItem;
+	/*
+	###HELMETS GO HERE###
+	*/
+};
+class CfgGlasses
+{
+	class G_Balaclava_blk;
+	/*
+	###BALACLAVAS GO HERE###
+	*/
 };

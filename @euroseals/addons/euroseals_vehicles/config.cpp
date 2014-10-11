@@ -1,20 +1,25 @@
 class CfgPatches
 {
-	class euroseals_vehicles_config
+	class euroseals_config
 	{
 		units[]=
 		{
-			"eus_a10",
+			"REPLACE_ME",
 
 		};
 		weapons[]=
 		{
+			"REPLACE_ME",
 		};
 		requiredVersion=0.1;
 		requiredAddons[]=
 		{
-			"A3_Air_F_EPC_Plane_CAS_01",
-			"A3_Air_F",
+			"A3_Characters_F_BLUFOR",
+			"A3_Characters_F_OPFOR",
+			"A3_Characters_F_BETA",
+			"A3_Weapons_F",
+			"A3_Soft_F",
+			"A3_Data_F"
 		};
 	};
 };
@@ -37,56 +42,77 @@ class CfgVehicleClasses
 };
 class CfgVehicles
 {
-	class Air;
-	class Plane: Air
+	class REPLACE_ME_F;
+	class REPLACE_ME_F: REPLACE_ME_F
 	{
-		class HitPoints;
-	};
-	class Plane_Base_F: Plane
-	{
-		class AnimationSources;
-		class HitPoints: HitPoints
-		{
-			class HitHull;
-		};
-	};
-	class Plane_CAS_01_base_F;
-	class EUS_A10_F: Plane_CAS_01_base_F
-	{
-		_generalMacro="EUS_A10_F";
+		_generalMacro="REPLACE_ME_F";
 		scope=2;
-		displayName="[EUS] A10E Thunderstorm";
+		displayName="[EUS] REPLACE_ME";
 		author="Mitsu";
 		faction="EUROSEALS";
 		vehicleClass="EUROSEALS";
-		model="\A3\Air_F_Gamma\Plane_CAS_01\Plane_cas_01_F.p3d";
-		icon="\A3\Air_F_EPC\Plane_CAS_01\Data\UI\Map_Plane_CAS_01_CA.paa";
-		picture="\A3\Air_F_EPC\Plane_CAS_01\Data\UI\Plane_CAS_01_CA.paa";
-		destrType="DestructWreck";
-		armor=70;
-		armorStructural=1;
-		damageResistance=0.0050000002;
-		accuracy=0.3;
-		maxSpeed=850;
+		nakedUniform="U_BasicBody";
+		uniformClass="REPLACE_ME";
 		hiddenSelections[]=
 		{
-			"Camo_1",
-			"Camo_2"
+			"Camo",
+			"insignia"
 		};
 		hiddenSelectionsTextures[]=
 		{
-			"euroseals_vehicles\data\a10e_texture_0.paa",
-			"euroseals_vehicles\data\a10e_texture_1.paa"
+			"\euroseals\data\textures\REPLACE_ME.paa"
 		};
-		mapSize=17.52;
-		crew="B_pilot_F";
-		typicalCargo[]=
+		linkedItems[]=
 		{
-			"B_pilot_F"
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
 		};
-		availableForSupportTypes[]=
+		respawnLinkedItems[]=
 		{
-			"CAS_Bombing"
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
 		};
 	};
+};
+class cfgWeapons
+{
+	class Uniform_Base;
+	class UniformItem;
+	class REPLACE_ME: Uniform_Base
+	{
+		scope=2;
+		author="Mitsu";
+		displayName="REPLACE_ME";
+		picture="\A3\characters_f\data\ui\icon_u_ir_officer_spc_ca.paa";	
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="REPLACE_ME";
+			containerClass="Supply50";
+			mass=80;
+		};
+	};
+	class Vest_Base;
+	class VestItem;
+	class Vest_Camo_Base;
+	/*
+	###VESTS GO HERE###
+	*/
+	class ItemCore;
+	class HeadgearItem;
+	/*
+	###HELMETS GO HERE###
+	*/
+};
+class CfgGlasses
+{
+	class G_Balaclava_blk;
+	/*
+	###BALACLAVAS GO HERE###
+	*/
 };
